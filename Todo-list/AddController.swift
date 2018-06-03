@@ -10,6 +10,17 @@ import UIKit
 
 class AddController: UIViewController {
 
+    
+    @IBOutlet weak var textField: UITextField!
+    
+    @IBAction func onAddAction(_ sender: Any) {
+        if textField.text != nil && textField.text != "" {
+            todoList?.append(textField.text!)
+            textField.text = nil
+            textField.placeholder = "Add more ?"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,16 +31,4 @@ class AddController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
